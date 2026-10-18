@@ -1,0 +1,152 @@
+// คำอธิบายไฟล์: นิยามโมเดลฐานข้อมูลและความสัมพันธ์ระหว่างผู้ใช้ อุปกรณ์ หมวดหมู่ และคำขอยืม
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ค่า role/status ใช้ String และตรวจค่าที่อนุญาตด้วย Zod เพื่อให้ปรับใช้ได้ทั้ง SQLite และ MySQL
+
+// บัญชีผู้ใช้และข้อมูลสถานะบัญชี; role ใช้แยก ADMIN/USER และ status ใช้ระงับการเข้าสู่ระบบ
+model User {
+  id           String   @id @default(cuid())
+  name         String
+  email        String   @unique
+  passwordHash String
+  role         String   @default("USER") // ADMIN | USER (ผู้ดูแลระบบ | ผู้ใช้ทั่วไป)
+  status       String   @default("ACTIVE") // ACTIVE | SUSPENDED (ใช้แทนฟิลด์ isActive แบบ boolean เดิม)
+  suspendedAt     DateTime?
+  suspendedReason String?
+  suspendedById   String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  suspendedBy User?  @relation("Suspender", fields: [suspendedById], references: [id], onDelete: SetNull)
+  suspendedUsers User[] @relation("Suspender")
+  borrowings Borrowing[] @relation("Borrower")
+  approvals  Borrowing[] @relation("Approver")
+  audits     AuditLog[]  @relation("AuditActor")
+  auditedAs  AuditLog[]  @relation("AuditTarget")
+
+  @@index([status])
+  @@index([role])
+}
+
+model Category {
+  id          String      @id @default(cuid())
+  name        String      @unique
+  description String?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  equipment   Equipment[]
+}
+
+// จำนวนรวม จำนวนพร้อมให้ยืม และจำนวนซ่อมถูกแยกกันเพื่อคำนวณสต็อกได้ถูกต้อง
+model Equipment {
+  id                  String    @id @default(cuid())
+  equipmentCode       String    @unique
+  name                String
+  description         String?
+  categoryId          String
+  totalQuantity       Int
+  availableQuantity   Int
+  maintenanceQuantity Int       @default(0)
+  location            String
+  condition           String    @default("GOOD") // GOOD | FAIR | DAMAGED (ดี | พอใช้ | ชำรุด)
+  status              String    @default("AVAILABLE") // AVAILABLE | MAINTENANCE | INACTIVE (พร้อมใช้ | ซ่อมบำรุง | ปิดใช้งาน)
+  imageUrl            String?
+  deletedAt           DateTime?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
+  category Category        @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  items    BorrowingItem[]
+
+  @@index([name])
+  @@index([categoryId])
+  @@index([status])
+}
+
+// หัวรายการยืม เก็บผู้ยืม วันคืน สถานะ และผู้อนุมัติ
+model Borrowing {
+  id                 String    @id @default(cuid())
+  borrowingCode      String    @unique
+  borrowerId         String
+  requestDate        DateTime  @default(now())
+  approvedById       String?
+  approvedAt         DateTime?
+  issuedAt           DateTime?
+  expectedReturnDate DateTime
+  actualReturnDate   DateTime?
+  status             String    @default("PENDING") // PENDING|APPROVED|REJECTED|BORROWED|RETURNED|CANCELLED (OVERDUE คำนวณจากสถานะและวันคืน)
+  purpose            String
+  notes              String?
+  rejectionReason    String?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  borrower   User             @relation("Borrower", fields: [borrowerId], references: [id], onDelete: Restrict)
+  approvedBy User?            @relation("Approver", fields: [approvedById], references: [id], onDelete: Restrict)
+  items      BorrowingItem[]
+  events     BorrowingEvent[]
+
+  @@index([status])
+  @@index([borrowerId])
+  @@index([expectedReturnDate])
+}
+
+// รายการอุปกรณ์ในคำขอหนึ่งรายการ รองรับการคืนบางส่วนผ่าน quantityIssued/quantityReturned
+model BorrowingItem {
+  id                   String  @id @default(cuid())
+  borrowingId          String
+  equipmentId          String
+  quantity             Int
+  quantityIssued       Int     @default(0)
+  quantityReturned     Int     @default(0)
+  conditionAtBorrowing String?
+  conditionAtReturn    String?
+  returnNotes          String?
+
+  borrowing Borrowing @relation(fields: [borrowingId], references: [id], onDelete: Cascade)
+  equipment Equipment @relation(fields: [equipmentId], references: [id], onDelete: Restrict)
+
+  @@unique([borrowingId, equipmentId])
+  @@index([equipmentId])
+}
+
+// ประวัติการเปลี่ยนสถานะ ใช้ตรวจสอบย้อนหลังว่าใครทำอะไรเมื่อใด
+model BorrowingEvent {
+  id          String   @id @default(cuid())
+  borrowingId String
+  actorId     String
+  fromStatus  String?
+  toStatus    String
+  note        String?
+  createdAt   DateTime @default(now())
+
+  borrowing Borrowing @relation(fields: [borrowingId], references: [id], onDelete: Cascade)
+
+  @@index([borrowingId])
+}
+
+// บันทึกการกระทำสำคัญของระบบเพื่อการตรวจสอบย้อนหลัง
+model AuditLog {
+  id         String   @id @default(cuid())
+  actorId    String?
+  targetUserId String?
+  action     String
+  entityType String
+  entityId   String
+  reason     String?
+  metadata   String?
+  createdAt  DateTime @default(now())
+
+  actor      User? @relation("AuditActor", fields: [actorId], references: [id], onDelete: SetNull)
+  targetUser User? @relation("AuditTarget", fields: [targetUserId], references: [id], onDelete: SetNull)
+
+  @@index([targetUserId])
+  @@index([entityType, entityId])
+}

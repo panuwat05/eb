@@ -1,0 +1,10 @@
+// คำอธิบายไฟล์: หน้าสำหรับ ADMIN เพื่อดูและจัดการข้อมูลตามสิทธิ์ของผู้ดูแลระบบ
+import EquipmentForm from "@/components/EquipmentForm";
+import prisma from "@/lib/prisma";
+import { pageUser } from "@/lib/guard";
+
+export default async function NewEquipment() {
+  await pageUser(true);
+  const categories = await prisma.category.findMany({ orderBy: { name: "asc" }, select: { id: true, name: true } });
+  return (<div className="space-y-4"><h1 className="text-2xl font-bold">เพิ่มอุปกรณ์</h1><EquipmentForm categories={categories} /></div>);
+}
