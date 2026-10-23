@@ -359,10 +359,9 @@ npm run build
 
 **ภาพหน้าจอหน้าเข้าสู่ระบบ**
 
-<!-- เพิ่มภาพหน้าจอ Login ที่นี่: <img width="1896" height="987" alt="image" src="https://github.com/user-attachments/assets/a1b5481f-629d-48c2-a5f7-347e2d0c2729" />
- -->
-![หน้าเข้าสู่ระบบ](<img width="1893" height="980" alt="image" src="https://github.com/user-attachments/assets/76c5b276-4fe0-4d7d-b2cd-7b1f75b54003" />
-)
+
+<img width="1893" height="980" alt="image" src="https://github.com/user-attachments/assets/3e5862ad-fa15-4ec9-9d7e-60629a859136" />
+
 
 คำอธิบายเพิ่มเติม:  
 - ผู้ใช้กรอกอีเมลและรหัสผ่านในช่องที่กำหนด
@@ -375,8 +374,8 @@ npm run build
 
 **ภาพหน้าจอหน้าสมัครสมาชิก**
 
-<!-- เพิ่มภาพหน้าจอ Register ที่นี่: docs/screenshots/02-register.png -->
-![หน้าสมัครสมาชิก](docs/screenshots/02-register.png)
+<img width="1861" height="978" alt="image" src="https://github.com/user-attachments/assets/e5a6238a-e573-4d30-9726-2946d8443566" />
+
 
 คำอธิบายเพิ่มเติม:  
 - กรอกข้อมูลตามช่องที่หน้าเว็บกำหนด
@@ -389,8 +388,8 @@ npm run build
 
 **ภาพหน้าจอ Admin Dashboard**
 
-<!-- เพิ่มภาพหน้าจอ Admin Dashboard ที่นี่: docs/screenshots/03-admin-dashboard.png -->
-![หน้า Dashboard ผู้ดูแลระบบ](docs/screenshots/03-admin-dashboard.png)
+<img width="1914" height="991" alt="image" src="https://github.com/user-attachments/assets/bdb0050b-3d1e-4713-8538-aca99c18d54e" />
+
 
 คำอธิบายเพิ่มเติม:  
 - ใช้ดูข้อมูลภาพรวมที่ระบบแสดง
@@ -403,8 +402,8 @@ npm run build
 
 **ภาพหน้าจอรายการอุปกรณ์**
 
-<!-- เพิ่มภาพหน้าจอ Equipment List ที่นี่: docs/screenshots/04-equipment-list.png -->
-![หน้ารายการอุปกรณ์](docs/screenshots/04-equipment-list.png)
+<img width="1919" height="987" alt="image" src="https://github.com/user-attachments/assets/f284a7b4-133f-4d68-aba9-356a368793f7" />
+
 
 คำอธิบายเพิ่มเติม:  
 - แสดงข้อมูลอุปกรณ์และจำนวนที่พร้อมใช้งานตามข้อมูลในฐานข้อมูล
@@ -417,8 +416,8 @@ npm run build
 
 **ภาพหน้าจอฟอร์มอุปกรณ์**
 
-<!-- เพิ่มภาพหน้าจอ Equipment Form ที่นี่: docs/screenshots/05-equipment-form.png -->
-![ฟอร์มเพิ่มหรือแก้ไขอุปกรณ์](docs/screenshots/05-equipment-form.png)
+<img width="1882" height="981" alt="image" src="https://github.com/user-attachments/assets/e152977d-ea8f-4cfb-ade7-4e415cc415f7" />
+
 
 คำอธิบายเพิ่มเติม:  
 - กรอกข้อมูลอุปกรณ์ให้ครบถ้วนตามฟอร์ม
@@ -431,8 +430,8 @@ npm run build
 
 **ภาพหน้าจอสร้างคำขอยืม**
 
-<!-- เพิ่มภาพหน้าจอ New Borrowing ที่นี่: docs/screenshots/06-new-borrowing.png -->
-![หน้าสร้างคำขอยืม](docs/screenshots/06-new-borrowing.png)
+<img width="1911" height="993" alt="image" src="https://github.com/user-attachments/assets/a06efbb7-76e6-4bcf-a4d0-e17c19eaf6fa" />
+
 
 คำอธิบายเพิ่มเติม:  
 - เลือกอุปกรณ์และระบุจำนวนที่ต้องการ
@@ -445,8 +444,7 @@ npm run build
 
 **ภาพหน้าจอประวัติคำขอยืม**
 
-<!-- เพิ่มภาพหน้าจอ Borrowing History ที่นี่: docs/screenshots/07-borrowing-history.png -->
-![หน้าประวัติคำขอยืม](docs/screenshots/07-borrowing-history.png)
+<img width="1901" height="990" alt="image" src="https://github.com/user-attachments/assets/1e4c403f-046f-4e4b-afa3-9e37ea6a7256" />
 
 คำอธิบายเพิ่มเติม:  
 - ตรวจสอบรายการคำขอและสถานะของแต่ละรายการ
@@ -459,8 +457,7 @@ npm run build
 
 **ภาพหน้าจอจัดการคำขอยืม**
 
-<!-- เพิ่มภาพหน้าจอ Borrowing Management ที่นี่: docs/screenshots/08-borrowing-management.png -->
-![หน้าจัดการคำขอยืม](docs/screenshots/08-borrowing-management.png)
+<img width="1890" height="988" alt="image" src="https://github.com/user-attachments/assets/2a55828c-06ec-4d48-9526-bd3c7e7be3e4" />
 
 คำอธิบายเพิ่มเติม:  
 - ตรวจสอบรายละเอียดคำขอก่อนดำเนินการ
@@ -473,8 +470,8 @@ npm run build
 
 **ภาพหน้าจอบันทึกการคืนอุปกรณ์**
 
-<!-- เพิ่มภาพหน้าจอ Return Equipment ที่นี่: docs/screenshots/09-return-equipment.png -->
-![หน้าบันทึกการคืนอุปกรณ์](docs/screenshots/09-return-equipment.png)
+<img width="1907" height="993" alt="image" src="https://github.com/user-attachments/assets/3fa8a079-b01c-473a-bcad-dac1394c1869" />
+<img width="1908" height="989" alt="image" src="https://github.com/user-attachments/assets/1e6cdb75-09d0-46bf-b299-57a8fff4b84d" />
 
 คำอธิบายเพิ่มเติม:  
 - บันทึกจำนวนอุปกรณ์ที่ได้รับคืนจริง
@@ -487,42 +484,14 @@ npm run build
 
 **ภาพหน้าจอจัดการบัญชีผู้ใช้**
 
-<!-- เพิ่มภาพหน้าจอ User Management ที่นี่: docs/screenshots/10-user-management.png -->
-![หน้าจัดการบัญชีผู้ใช้](docs/screenshots/10-user-management.png)
+<img width="1914" height="998" alt="image" src="https://github.com/user-attachments/assets/103a3a90-290d-4740-b769-d8eb02b6886c" />
+<img width="1914" height="996" alt="image" src="https://github.com/user-attachments/assets/6dd24da2-dc98-4938-99a7-1b24f96b2e97" />
+
 
 คำอธิบายเพิ่มเติม:  
 - ตรวจสอบข้อมูลบัญชีผู้ใช้ที่ระบบอนุญาตให้แสดง
 - ระงับบัญชีที่ไม่ควรใช้งาน หรือเปิดใช้งานอีกครั้งตามความเหมาะสม
 - การจัดการบัญชีผู้ใช้เป็นสิทธิ์ของ ADMIN เท่านั้น
-
-> **หมายเหตุ:** ภาพตัวอย่างข้างต้นเป็นตำแหน่งสำหรับใส่ภาพหน้าจอของระบบจริง ไม่ใช่ภาพที่สร้างขึ้นให้อัตโนมัติ หากชื่อหน้า เมนู หรือองค์ประกอบในโปรแกรมของคุณแตกต่างจากคำอธิบาย ให้แก้คำอธิบายให้ตรงกับหน้าจอจริงก่อนส่งงาน
-
-### วิธีเพิ่มภาพหน้าจอให้แสดงใน README
-
-1. สร้างโฟลเดอร์ `docs/screenshots` ที่ระดับเดียวกับไฟล์ `README.md`
-2. จับภาพหน้าจอจากโปรแกรมจริง แล้วบันทึกเป็นไฟล์ PNG เช่น `01-login.png`
-3. นำไฟล์ภาพไปวางในโฟลเดอร์ `docs/screenshots`
-4. ตรวจสอบว่าชื่อไฟล์และนามสกุลตรงกับที่ระบุใน README
-5. เปิด README ใน VS Code หรือ GitHub เพื่อตรวจสอบว่าภาพแสดงถูกต้อง
-
-ตัวอย่างโครงสร้างไฟล์:
-
-```text
-eb/
-├── docs/
-│   └── screenshots/
-│       ├── 01-login.png
-│       ├── 02-register.png
-│       ├── 03-admin-dashboard.png
-│       ├── 04-equipment-list.png
-│       ├── 05-equipment-form.png
-│       ├── 06-new-borrowing.png
-│       ├── 07-borrowing-history.png
-│       ├── 08-borrowing-management.png
-│       ├── 09-return-equipment.png
-│       └── 10-user-management.png
-└── README.md
-```
 
 
 ## 21. อธิบายโค้ดแบบละเอียดสำหรับผู้เริ่มต้น
