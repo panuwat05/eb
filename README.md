@@ -361,7 +361,8 @@ npm run build
 
 <!-- เพิ่มภาพหน้าจอ Login ที่นี่: <img width="1896" height="987" alt="image" src="https://github.com/user-attachments/assets/a1b5481f-629d-48c2-a5f7-347e2d0c2729" />
  -->
-![หน้าเข้าสู่ระบบ](docs/screenshots/01-login.png)
+![หน้าเข้าสู่ระบบ](<img width="1893" height="980" alt="image" src="https://github.com/user-attachments/assets/76c5b276-4fe0-4d7d-b2cd-7b1f75b54003" />
+)
 
 คำอธิบายเพิ่มเติม:  
 - ผู้ใช้กรอกอีเมลและรหัสผ่านในช่องที่กำหนด
