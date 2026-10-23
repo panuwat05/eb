@@ -359,7 +359,8 @@ npm run build
 
 **ภาพหน้าจอหน้าเข้าสู่ระบบ**
 
-<!-- เพิ่มภาพหน้าจอ Login ที่นี่: docs/screenshots/01-login.png -->
+<!-- เพิ่มภาพหน้าจอ Login ที่นี่: <img width="1896" height="987" alt="image" src="https://github.com/user-attachments/assets/a1b5481f-629d-48c2-a5f7-347e2d0c2729" />
+ -->
 ![หน้าเข้าสู่ระบบ](docs/screenshots/01-login.png)
 
 คำอธิบายเพิ่มเติม:  
